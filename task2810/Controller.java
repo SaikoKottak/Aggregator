@@ -8,7 +8,7 @@ public class Controller {
     private Provider[] providers;
 
     public Controller(Provider ... providers){
-
+        if(providers.length==0) throw new IllegalArgumentException();
         this.providers = providers;
     }
 
