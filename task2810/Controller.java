@@ -16,8 +16,8 @@ public class Controller {
         if(model == null) throw new IllegalArgumentException();
         this.model = model;
     }
-    public void onCitySelect(String cityName) {
-        model.selectCity(cityName);
+    public void onRequestSelect(String request) {
+        model.selectRequest(request);
     }
 
 }

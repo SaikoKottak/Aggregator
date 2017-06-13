@@ -51,7 +51,7 @@ public class MoikrugStrategy implements Strategy {
         String url = String.format(URL_FORMAT,page,form);
         return Jsoup.connect(url)
                 .userAgent("Chrome/58.0.3029.110")
-                .referrer("http:/hh.ua/")
+                .referrer("https://moikrug.ru")
                 .get();
     }
 }

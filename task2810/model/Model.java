@@ -17,10 +17,10 @@ public class Model {
         this.providers = providers;
     }
 
-    public void selectCity(String city) {
+    public void selectRequest(String request) {
         List<Vacancy> vacancies = new ArrayList<>();
         for (Provider provider : providers) {
-            vacancies.addAll(provider.getJavaVacancies(city));
+            vacancies.addAll(provider.getJavaVacancies(request));
         }
         view.update(vacancies);
     }

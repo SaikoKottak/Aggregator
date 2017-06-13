@@ -12,7 +12,9 @@ import java.util.List;
 
 public class HHStrategy implements Strategy {
 
-    private static final String URL_FORMAT = "http://hh.ua/search/vacancy?text=java+%s&page=%d";
+    private static final String URL_FORMAT = "https://ekaterinburg.hh.ru/search/vacancy?text=%s&enable_snippets=true&clusters=true&area=3&page=%d";
+
+    //TODO in url area 1 - Moscow, 2 - SPB, 3 - Ekaterinburg, 4 - NovoSibirsk, 5 - Ukraine; Create Enum for this
 
     @Override
     public List<Vacancy> getVacancies(String searchString) {
@@ -41,7 +43,7 @@ public class HHStrategy implements Strategy {
                         vacancy.setCity(element.select(addressQuery).text());
                         vacancy.setCompanyName(element.select(employerQuery).text());
 
-                        vacancy.setSiteName("http:/hh.ua/");
+                        vacancy.setSiteName("https://hh.ru/");
                         vacancy.setUrl(element.select(titleQuery).attr("href"));
 
                         if (!element.select(compensationQuery).isEmpty()) {
@@ -68,7 +70,7 @@ public class HHStrategy implements Strategy {
         String url = String.format(URL_FORMAT, searchString, page);
         return Jsoup.connect(url)
                 .userAgent("Chrome/58.0.3029.110")
-                .referrer("http:/hh.ua/")
+                .referrer("https://hh.ru/")
                 .get();
     }
 }

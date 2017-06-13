@@ -35,8 +35,8 @@ public class HtmlView implements View {
     }
 
 
-    public void userCitySelectEmulationMethod() {
-        controller.onCitySelect("junior");
+    public void userRequest(String request) {
+        controller.onRequestSelect(request);
     }
 
 
